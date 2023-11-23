@@ -1,33 +1,22 @@
 import React from 'react';
+import { range } from '../../utils'
+import { checkGuess } from '../../game-helpers';
 
-function Guess( { guesses, setGuesses }) {
-  const [guess, setGuess] = React.useState('');
-
-  function handleSubmit() {
-    event.preventDefault();
-    console.log(guesses)
-    if (guess.length < 5) {
-      return window.alert('not long enough')
-    }
-    let nextGuesses = [...guesses, guess];
-    setGuesses(nextGuesses);
-    setGuess('')
+function Guess({ guess, answer, id }) {
+  let statuses = [];
+  if (guess) {
+    checkGuess(guess, answer).forEach(obj => (
+      statuses.push(obj['status'])
+    ))
   }
-  return (
-    <form onSubmit={(handleSubmit)} className='guess-input-wrapper'>
-      <label htmlFor='guess'>Guess word</label>
-      <input 
-        id='guess'
-        type="text"
-        required
-        minLength={5}
-        maxLength={5}
-        value={guess.toUpperCase()}
-        onChange={(event) => (setGuess(event.target.value))} >
-      </input>
-      <button htmlFor="guess" type="submit">Submit</button>
-    </form>
-  )
+  console.log(answer)
+  return<>
+    <p className='guess' key={id}>
+      {range(0, 5, 1).map((index) => (
+        <span className={`cell${statuses.length > 0 ? ` ${statuses[index]}` : ""}`} key={index}>{guess ? guess[index] : ""}</span>
+        ))}
+    </p>
+  </>
 }
 
 export default Guess;
