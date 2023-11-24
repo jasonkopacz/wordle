@@ -6,7 +6,7 @@ function PreviousGuesses({ guesses, answer }) {
   return (
     <div className='guess-results'>
       {range(6).map(columnIndex => (
-        <Guess guess={guesses[columnIndex]} answer={answer} key={columnIndex}/>
+        <Guess guess={guesses[columnIndex]} answer={answer} key={columnIndex} />
       ))}
     </div>
   )
