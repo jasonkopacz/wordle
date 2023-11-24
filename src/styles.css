@@ -243,6 +243,7 @@ h1 {
 
 .keyboard-row {
   display: flex;
+  justify-content: center;
   gap: 4px;
   margin: 4px;
 }
@@ -257,16 +258,14 @@ h1 {
 }
 
 .keyboard-key {
-  position: relative;
-  width: 30%;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 4px;
   display: grid;
   place-content: center;
-  aspect-ratio: 1 / 1;
-  border: 2px solid var(--color-gray-700);
-  border-radius: var(--radius);
-  font-size: 2rem;
-  padding: 0 10px;
-  text-align: center;
+  background: var(--color-gray-900);
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 .keyboard-key.correct {
