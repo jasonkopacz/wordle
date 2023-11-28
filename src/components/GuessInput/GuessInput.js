@@ -2,7 +2,7 @@ import React from 'react';
 import { NUM_OF_GUESSES_ALLOWED } from '../../constants'
 import Banner from '../Banner/Banner'
 
-function GuessInput( { guesses, setGuesses, answer, setAnswer }) {
+function GuessInput( { guesses, setGuesses, answer, nextGuesses  }) {
   const [guess, setGuess] = React.useState('');
 
   function handleSubmit() {
