@@ -7,6 +7,7 @@ function getStatusByLetter(validatedGuesses) {
 
   validatedGuesses.forEach((guess) => {
     guess.forEach(({ letter, status }) => {
+      if (statusObj[letter] == 'correct') return;
       statusObj[letter] = status;
     });
   });
