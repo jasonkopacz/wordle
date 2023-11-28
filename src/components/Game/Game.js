@@ -7,7 +7,6 @@ import PreviousGuesses from '../PreviousGuesses/PreviousGuesses';
 import Keyboard from '../Keyboard/Keyboard';
 import { checkGuess } from '../../game-helpers';
 // Pick a random word on every pageload.
-// To make debugging easier, we'll log the solution in the console.
 
 function Game() {
   const [answer, setAnswer] = React.useState(sample(WORDS));
@@ -15,7 +14,6 @@ function Game() {
   const validatedGuesses = guesses.map(guess => (
     checkGuess(guess, answer)
   ))
-  console.info({ answer });
   return <>
     <PreviousGuesses guesses={guesses} answer={answer} />
     <GuessInput guesses={guesses} setGuesses={setGuesses} answer={answer} setAnswer={setAnswer}/>
